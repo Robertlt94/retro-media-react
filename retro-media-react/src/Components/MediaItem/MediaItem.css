@@ -1,5 +1,6 @@
 .item-container {
     margin: 2vh 1vw;
+    border: solid 3px #000;
 }
 
 .item-container button {

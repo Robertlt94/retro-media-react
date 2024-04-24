@@ -1,14 +1,18 @@
-import React, {useState} from "react";
+import React from "react";
 import "./MediaList.css";
 import MediaItem from "../MediaItem/MediaItem";
 
-function MediaList(list, action) {
+const MediaList = ({list, addToCart}) => {
 
     return(
         <div id="media-list-container">
-            <MediaItem />
-        </div>
+            {list.map(item => {
+                return(
+                    <MediaItem key={item.id} item={item} addToCart={addToCart} />
+                )
+            })}
+        </ div>
     );
-};
+}
 
 export default MediaList;
