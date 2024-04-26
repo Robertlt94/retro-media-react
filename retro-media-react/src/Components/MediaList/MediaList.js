@@ -2,13 +2,13 @@ import React from "react";
 import "./MediaList.css";
 import MediaItem from "../MediaItem/MediaItem";
 
-const MediaList = ({list, addToCart}) => {
+const MediaList = ({inventory, userFavorites, addToCart, toggleFavoriteItem}) => {
 
     return(
         <div id="media-list-container">
-            {list.map(item => {
+            {inventory.map(item => {
                 return(
-                    <MediaItem key={item.id} item={item} addToCart={addToCart} />
+                    <MediaItem key={item.id} item={item} addToCart={addToCart} userFavorites={userFavorites} toggleFavoriteItem={toggleFavoriteItem}/>
                 )
             })}
         </ div>

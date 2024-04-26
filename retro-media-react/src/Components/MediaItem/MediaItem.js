@@ -1,12 +1,22 @@
-import react, {useState} from 'react';
+import React from 'react';
 import "./MediaItem.css";
+import Button from '@mui/material/Button';
+import Link from '@mui/material/Link';
+import StarOutlineIcon from '@mui/icons-material/StarOutline';
+import StarIcon from '@mui/icons-material/Star';
 
-const MediaItem = ({key, item, addToCart}) => {
+const MediaItem = ({item, userFavorites, addToCart, toggleFavoriteItem}) => {
 
         return (
             <div className="item-container">
-                <strong key={key} >{item.title} ({item.type})</strong>
-                <button onClick={() => addToCart(item)}>Add to Cart</button>
+                <Link component="button" item={item} style={{top: "0"}}><strong>{item.title} ({item.type})</strong></Link>
+                <StarIcon style={{color: "red"}} onClick={() => {toggleFavoriteItem(item)}}/>
+                {console.log('hello world')}
+                {/* {userFavorites.includes(item) ?
+                    <StarIcon onClick={() => {toggleFavoriteItem(item)}}/>
+                    :
+                    <StarOutlineIcon onClick={() => {toggleFavoriteItem(item)}}/>} */}
+                <Button variant="contained" onClick={() => addToCart(item)} style={{top: "0"}}>Add to Cart</Button>
             </div>
     );
 };
