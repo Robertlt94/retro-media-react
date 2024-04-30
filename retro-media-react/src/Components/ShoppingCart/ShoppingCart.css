@@ -1,0 +1,17 @@
+button {
+    position: absolute;
+    right: 0;
+    top: 30px;
+    margin-right: 2vw;
+    display: flex;
+    flex: 1 1;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+button p {
+    font-size: 3rem;
+    margin-top: 10px;
+    font-weight: bold;
+}

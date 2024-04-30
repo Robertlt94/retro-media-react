@@ -1,5 +1,23 @@
-.item-container {
-    border: solid 3px #000;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+.fav-item-container {
+    width: 20vw;
+    height: 38vh;
+    padding: 1vw 2vh;
+}
+
+#fav-image img {
+    height:25vh;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#fav-content {
+    justify-content: center;
+    display: flex;
+    height: 20px;
+}
+
+#fav-content p {
+    margin: 0;
+    font-size: 20px;
+    display: absolute;
 }

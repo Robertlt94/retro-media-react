@@ -1,13 +1,13 @@
 import React from 'react';
 import './Header.css';
-import ShoppingCartIcon from '../ShoppingCartIcon/ShoppingCartIcon'
+import ShoppingCart from '../ShoppingCart/ShoppingCart'
 
-function Header(cart) {
+function Header(cart, cartQuantity) {
 
     return (
         <header id="header">
             <h1>Retro media</h1>
-            <ShoppingCartIcon cart={cart} />
+            <ShoppingCart cart={cart} cartQuantity={cartQuantity}/>
         </header>
     );
 };
