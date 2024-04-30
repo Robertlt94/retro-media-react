@@ -1,0 +1,11 @@
+#message-container{
+    text-align: center;
+    background-color: #c9c9dc;
+}
+
+#message-container p {
+    font-size: 2rem;
+    font-weight: bold;
+    margin: 0;
+    padding: 1vh 0;
+}

@@ -4,14 +4,15 @@ import './App.css';
 import Header from "./Components/Header/Header";
 import MediaList from "./Components/MediaList/MediaList";
 import FavoritesList from "./Components/FavoritesList/FavoritesList";
+import Banner from "./Components/Banner/Banner";
 
 
 const App = () => {
   const [cart, setCart] = useState([]);
-  const [cartQuantity, setCartQuantity] = useState(0);
+  const [cartCount, setCartCount] = useState(0);
   const [favorites, setFavorites] = useState([]);
-  const [message, setMessage] = useState('');
-  const [inventory, setInventory] = useState(
+  const [message, setMessage] = useState('Welcome to Retro Media!');
+  const [inventory] = useState(
     [
       { "id": 1, "type": "VHS", "title": "Back to the Future", "favorite": false, "quantity": "0", "image": "https://m.media-amazon.com/images/M/MV5BZmU0M2Y1OGUtZjIxNi00ZjBkLTg1MjgtOWIyNThiZWIwYjRiXkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_.jpg"},
       { "id": 2, "type": "DVD", "title": "The Matrix", "favorite": false, "quantity": "0", "image": "https://m.media-amazon.com/images/M/MV5BNzQzOTk3OTAtNDQ0Zi00ZTVkLWI0MTEtMDllZjNkYzNjNTc4L2ltYWdlXkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_.jpg" },
@@ -28,21 +29,24 @@ const App = () => {
 
   const addToCart = (item) => {
     setCart([...cart, item]);
-    setCartQuantity(cartQuantity + 1);
-    console.log(cartQuantity);
+    setCartCount(cart.length);
+    setMessage(`Added ${item.title} to cart.`);
+    console.log(cart, cartCount);
   };
 
   const removeFromCart = (item) => {
-    setCart(cart.filter(cartItem => cartItem.id != item.id));
+    // setCart(cart.filter(cartItem => cartItem.id !== item.id));
+    setCart(
+      cart.content = cart.filter(cartItem => cartItem.id !== item.id),
+      cart.count = cart.content.length
+  );
     setMessage(`Removed ${item.title} from cart.`);
-    setCartQuantity(cartQuantity - 1);
+    // setCartQuantity(cartQuantity - 1);
   };
 
   const toggleFavoriteItem = (item) => {
     item.favorite = !item.favorite;
-    // console.log(item.favorite);
-    // (item.favorite) ? setMessage(`${item.title} has been added to your favorites!`) : setMessage(`${item.title} has been removed from your favorites!`);
-    if(item.favorite == true){
+    if(item.favorite === true){
       setMessage(`${item.title} has been added to your favorites!`);
     }else {
       setMessage(`${item.title} has been removed from your favorites!`);
@@ -58,27 +62,27 @@ const App = () => {
   }
 
   return (
-    // <Router>
+    <Router>
       <div id='app-container'>
-        <Header cart={cart} cartQuantity={cartQuantity}/>
-        {/* <nav>
+        <Header cart={cart} cartCount={cartCount} />
+
+        <nav>
           <Link to='/'>Home</Link>
           <Link to='/vhs'>VHS</Link>
           <Link to='/dvd'>DVD</Link>
           <Link to='/CD'>CD</Link>
-        </nav> */}
-        {message && <div>{message}</div>}
-        <h1>Welcome to our Retro Media Store!</h1>
-        {/* <Routes>
+        </nav>
+        <Banner message={message} />
+        <Routes>
           <Route path='/' element={<MediaList inventory={inventory} addToCart={addToCart} removeFromCart={removeFromCart} favorites={favorites}toggleFavoriteItem={toggleFavoriteItem} />} exact/>
           <Route path='/vhs' element={<MediaList inventory={inventory.filter(item => item.type === 'VHS')} addToCart={addToCart} removeFromCart={removeFromCart} favorites={favorites} toggleFavoriteItem={toggleFavoriteItem} />} exact/>
           <Route path='/dvd' element={<MediaList inventory={inventory.filter(item => item.type === 'DVD')} addToCart={addToCart} removeFromCart={removeFromCart} favorites={favorites} toggleFavoriteItem={toggleFavoriteItem} />} exact/>
           <Route path='/cd' element={<MediaList inventory={inventory.filter(item => item.type === 'CD')} addToCart={addToCart} removeFromCart={removeFromCart} favorites={favorites} toggleFavoriteItem={toggleFavoriteItem} />} exact/>
-        </Routes> */}
+        </Routes>
         {favorites.length > 0 ? <FavoritesList favorites={favorites} toggleFavoriteItem={toggleFavoriteItem} addToCart={addToCart}/> : <></>}
         <MediaList inventory={inventory} addToCart={addToCart} removeFromCart={removeFromCart} favorites={favorites} toggleFavoriteItem={toggleFavoriteItem}/>
       </div>
-    // </Router>
+    </Router>
   )
 }
 

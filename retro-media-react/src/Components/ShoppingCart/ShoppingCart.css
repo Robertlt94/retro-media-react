@@ -1,7 +1,7 @@
-button {
+#shopping-cart-icon {
     position: absolute;
     right: 0;
-    top: 30px;
+    top: 80px;
     margin-right: 2vw;
     display: flex;
     flex: 1 1;
@@ -10,8 +10,16 @@ button {
     cursor: pointer;
 }
 
-button p {
-    font-size: 3rem;
-    margin-top: 10px;
+#shopping-cart-icon p {
+    padding-top: 1vh;
+    font-size: 2rem;
+    margin: 0;
     font-weight: bold;
+    color: #fff;
+    margin-right: 1rem;
+    letter-spacing: 2px;
+}
+
+.ShoppingCartIconp:hover {
+    background-color: #ff0000;
 }

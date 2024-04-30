@@ -1,8 +1,23 @@
 .item-container {
-    border: solid 3px #000;
-    display: grid;
-    grid-template-columns: 2fr 1fr 1fr;
-    padding: 1rem;
-    margin: 1rem;
-    border-radius: 8pt;
+    padding: 0 2vh;
+    background-color: #202142;
+}
+
+.item-image img {
+    height: 25vh;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.item-content {
+    justify-content: center;
+    display: flex;
+    height: 20px; 
+}
+
+.item-content p {
+    margin: 0;
+    font-size: 20px;
+    display: absolute;
+    color: white;
 }
